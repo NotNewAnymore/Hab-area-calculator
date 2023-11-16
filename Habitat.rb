@@ -1,9 +1,11 @@
 class Habitat
+
     def initialize(shape,surfaceArea,machineArea,habitableArea)
         @shape = shape
         @surfaceArea = surfaceArea
         @machineArea = machineArea
         @habitableArea = habitableArea
+        @layers = []
     end
     def shape
         @shape
@@ -17,7 +19,9 @@ class Habitat
     def habitableArea
         @habitableArea
     end
-
+    def layersGet()
+        @layers
+    end
     def basicSetup()
         puts "Input radius of sphere hab:"
         radius = gets.to_f

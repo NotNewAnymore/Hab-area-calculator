@@ -1,6 +1,6 @@
 include Math
 require_relative 'Habitat'
-
+require_relative 'Layer'
 puts "Habitable area calculator by Henry Fleischer"
 puts "Select habitat shape: \n1.Sphere \n2.Cylender \n3.Test \nOther:Exit"
 shape = gets.strip
@@ -54,6 +54,9 @@ when shape = "2"
     layerRadius = radius
     layers.times{
         layerarea = 2 * PI * layerRadius * length
+        layerToAdd = Layer.new(layerarea,layerRadius)
+        habitat.layersGet.push(Layer.new(layerarea,layerRadius))
+        puts habitat.layersGet[-1].to_s
         surfaceArea += layerarea
         machineArea += layerarea * machinePortion
         layerRadius -= layerSpacing
